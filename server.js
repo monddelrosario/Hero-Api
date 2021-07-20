@@ -1,8 +1,11 @@
-require("dotenv").config();
 const express = require("express");
 const helmet = require("helmet");
 const compression = require("compression");
+const mongoose = require("mongoose");
+const cors = require("cors");
 const routes = require("./routes/hero"); // import the routes
+
+require("dotenv").config();
 
 const app = express();
 
@@ -10,20 +13,19 @@ app.use(helmet());
 
 app.use(compression());
 
+app.use("/public", express.static(process.cwd() + "/public")); //make public static
+
+app.use("/uploads", express.static("./uploads"));
+
+app.use(cors({ origin: "https://github.com/monddelrosario/Hero-Api" }));
+
 app.use(express.json());
+
+app.use("/", routes);
 
 app.use("/").get(function (req, res) {
   res.sendFile(process.cwd() + "/index.html");
 });
-
-app.use("/uploads", express.static("./uploads"));
-
-const listener = app.listen(process.env.PORT || 3000, () => {
-  console.log("Your app is listening on port " + listener.address().port);
-});
-
-//import mongoose
-const mongoose = require("mongoose");
 
 //establish connection to database
 mongoose.connect(
@@ -49,3 +51,7 @@ mongoose.connect(
     );
   }
 );
+
+const listener = app.listen(process.env.PORT || 3000, () => {
+  console.log("Your app is listening on port " + listener.address().port);
+});
