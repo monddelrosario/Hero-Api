@@ -1,0 +1,24 @@
+{
+  "name": "nodesample",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"  
+ },
+  "engines": {
+    "node": "12.14.1"
+  },
+
+  "author": "Raymond Del Rosario",
+  "license": "ISC",
+  "dependencies": {
+    "compression": "^1.7.4",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "helmet": "^4.6.0",
+    "mongoose": "^5.13.3",
+    "multer": "^1.4.2"
+  }
+}

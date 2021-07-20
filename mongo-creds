@@ -1,0 +1,6 @@
+u: monde-dr p: yLbckZz4KfEPCne
+
+
+mongodb+srv://monde-dr:yLbckZz4KfEPCne@cluster0.6cr8b.mongodb.net/cluster0?retryWrites=true&w=majority
+
+mongodb+srv://monde-dr:yLbckZz4KfEPCne@cluster0.6cr8b.mongodb.net/hero
