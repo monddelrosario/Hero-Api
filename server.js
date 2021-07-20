@@ -13,8 +13,6 @@ app.use(helmet());
 
 app.use(compression());
 
-app.use("/public", express.static(process.cwd() + "/public")); //make public static
-
 app.use("/uploads", express.static("./uploads"));
 
 app.use(cors({ origin: "https://github.com/monddelrosario/Hero-Api" }));
